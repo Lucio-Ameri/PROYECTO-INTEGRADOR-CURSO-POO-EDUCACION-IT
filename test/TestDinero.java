@@ -55,7 +55,6 @@ public class TestDinero {
         Dinero d7 = new Dinero(100.004, Moneda.EUR);
         Dinero d8 = new Dinero(100.006, Moneda.EUR);
 
-
         assertEquals(100.25, d2.getMonto());
         assertEquals(100.26, d3.getMonto());
         assertEquals(100.00, d5.getMonto());

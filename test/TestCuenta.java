@@ -76,7 +76,6 @@ public class TestCuenta {
         Cuenta c2 = new Cuenta(1, 200, TipoCuenta.CAJA_DE_AHORRO_EN_DOLARES);
         Cuenta c3 = new Cuenta(2, 200, TipoCuenta.CAJA_DE_AHORRO_EN_EUROS);
 
-
         assertThrows(IllegalArgumentException.class, () -> c.depositar(new Dinero(100, Moneda.EUR)));
         assertThrows(IllegalArgumentException.class, () -> c.depositar(new Dinero(100, Moneda.USD)));
 
@@ -135,9 +134,9 @@ public class TestCuenta {
         Cuenta c2 = new Cuenta(1, 200, TipoCuenta.CAJA_DE_AHORRO_EN_DOLARES);
         Cuenta c3 = new Cuenta(2, 200, TipoCuenta.CAJA_DE_AHORRO_EN_EUROS);
 
-        assertThrows(IllegalArgumentException.class, () -> c.depositar(null));
-        assertThrows(IllegalArgumentException.class, () -> c2.depositar(null));
-        assertThrows(IllegalArgumentException.class, () -> c3.depositar(null));
+        assertThrows(IllegalArgumentException.class, () -> c.retirar(null));
+        assertThrows(IllegalArgumentException.class, () -> c2.retirar(null));
+        assertThrows(IllegalArgumentException.class, () -> c3.retirar(null));
     }
 
     @Test
@@ -145,7 +144,6 @@ public class TestCuenta {
         Cuenta c = new Cuenta(0, 200, TipoCuenta.CAJA_DE_AHORRO_EN_PESOS);
         Cuenta c2 = new Cuenta(1, 200, TipoCuenta.CAJA_DE_AHORRO_EN_DOLARES);
         Cuenta c3 = new Cuenta(2, 200, TipoCuenta.CAJA_DE_AHORRO_EN_EUROS);
-
 
         assertThrows(IllegalArgumentException.class, () -> c.retirar(new Dinero(100, Moneda.EUR)));
         assertThrows(IllegalArgumentException.class, () -> c.retirar(new Dinero(100, Moneda.USD)));

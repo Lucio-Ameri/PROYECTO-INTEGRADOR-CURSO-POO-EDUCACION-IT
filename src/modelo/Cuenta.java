@@ -36,10 +36,6 @@ public class Cuenta {
         }
     }
 
-    private void setMonto(Dinero monto){
-        this.monto = monto;
-    }
-
     public int getID() {
         return ID;
     }
@@ -65,42 +61,30 @@ public class Cuenta {
         };
     }
 
-    public void depositar(Dinero dinero){
-
+    private void validarOperacion(Dinero dinero){
         if(dinero == null){
             throw new IllegalArgumentException("DINERO NULL, DATO INVALIDO");
         }
-
         if(dinero.getMoneda() != this.monedaEsperada()){
             throw new IllegalArgumentException("MONEDAS DE DIFERENTE TIPO, NO SE PUEDE REALIZAR LA ACCION");
         }
-
         if(dinero.isZero() || dinero.getMonto() < 0.00){
             throw new IllegalArgumentException("MONTO INVALIDO, MONTO NO PUEDE SER <= A 0");
         }
+    }
 
-        setMonto(monto.sumarDinero(dinero));
+    public void depositar(Dinero dinero){
+        validarOperacion(dinero);
+        this.monto = monto.sumarDinero(dinero);
     }
 
     public void retirar(Dinero dinero){
-
-        if(dinero == null){
-            throw new IllegalArgumentException("DINERO NULL, DATO INVALIDO");
-        }
-
-        if(dinero.getMoneda() != this.monedaEsperada()){
-            throw new IllegalArgumentException("MONEDAS DE DIFERENTE TIPO, NO SE PUEDE REALIZAR LA ACCION");
-        }
-
-        if(dinero.isZero() || dinero.getMonto() < 0.00){
-            throw new IllegalArgumentException("MONTO INVALIDO, MONTO NO PUEDE SER <= A 0");
-        }
+        validarOperacion(dinero);
 
         if(monto.compareTo(dinero) < 0){
             throw new IllegalArgumentException("SALDO DE CUENTA INSUFICIENTE, EL MISMO ES MENOR AL PRETENDIDO A RETIRAR");
         }
-
-        setMonto(monto.restarDinero(dinero));
+        this.monto = monto.restarDinero(dinero);
     }
 
     @Override

@@ -61,6 +61,8 @@ public class Dinero implements Comparable<Dinero>{
     }
 
     private void validarMismaMoneda(Dinero other) {
+        validarOther(other);
+
         if (this.moneda != other.moneda) {
             throw new IllegalArgumentException("LAS MONEDAS NO PUEDEN SER DIFERENTES");
         }
@@ -68,7 +70,6 @@ public class Dinero implements Comparable<Dinero>{
 
     @Override
     public int compareTo(Dinero other){
-        validarOther(other);
         validarMismaMoneda(other);
         return Double.compare(this.monto, other.getMonto());
     }

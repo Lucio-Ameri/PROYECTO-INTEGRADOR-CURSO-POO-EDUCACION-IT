@@ -116,7 +116,7 @@ public class Usuario {
     public boolean equals(Object o){
         if (this == o) return true;
         if (!(o instanceof Usuario other)) return false;
-        return ((usuarioID == other.usuarioID) && (email == other.email) && (DNI == other.DNI));
+        return ((usuarioID == other.usuarioID) && (Objects.equals(email, other.email)) && (Objects.equals(DNI, other.DNI)));
     }
 
     @Override
