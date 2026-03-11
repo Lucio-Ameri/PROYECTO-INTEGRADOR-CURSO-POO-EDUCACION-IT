@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface RepositorioUsuario {
     Usuario guardar(Usuario usuario);
 
-    Optional<Usuario> buscarPorID(int usuarioID);
+    /*Optional<Usuario> buscarPorID(int usuarioID);
 
     Optional<Usuario> buscarPorEmail(String email);
 
@@ -21,4 +21,5 @@ public interface RepositorioUsuario {
     boolean existePorEmail(String email);
 
     boolean existePorDNI(String DNI);
+     */
 }
